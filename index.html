@@ -7,33 +7,49 @@
                 //this check for lowercase
                 var lowerCaseLetters = /[a-z]/g;
                 if(document.getElementById("psw").value.match(lowerCaseLetters)) {
-                    document.getElementById("containerlc").style.backgroundColor='green';
+                    document.getElementById("containerlc").style.color='green';
                     document.getElementById("containerlc").innerHTML = "your password has lowercase letters";
-                }    
+                } else{
+                    document.getElementById("containerlc").style.color='red';
+                    document.getElementById("containerlc").innerHTML = "your password is missing a lowercase letter";
+                }
                 //this checks for uppercase
                 var upperCaseLetters = /[A-Z]/g;
                 if(document.getElementById("psw").value.match(upperCaseLetters)){
-                    document.getElementById('containeruc').style.backgroundColor='green';
+                    document.getElementById('containeruc').style.color='green';
                     document.getElementById("containeruc").innerHTML = "Your password has uppercase letters";
+                } else{
+                    document.getElementById("containeruc").style.color='red';
+                    document.getElementById("containeruc").innerHTML = "your password is missing a uppercase letter ";
                 }
                 //this checks for numbers
                 var number = /[0-9]/g;
                 if(document.getElementById("psw").value.match(number)){
-                    document.getElementById("containernm").style.backgroundColor='green';
+                    document.getElementById("containernm").style.color='green';
+                    document.getElementById("containernm").innerHTML = "your password has numbers"
+                } else{
+                    document.getElementById("containernm").style.color='red';
+                    document.getElementById("containernm").innerHTML = "your password is missing a number ";
                 }
                 //this checks for password length
                 if(document.getElementById("psw").value.length>7){
-                    document.getElementById("containerfc").style.backgroundColor='green';
+                    document.getElementById("containerfc").style.color='green';
+                    document.getElementById("containerfc").innerHTML = "your password has 8 or more charecters";
 
+                } else {
+                    document.getElementById("containerfc").style.color='red';
+                    document.getElementById("containerfc").innerHTML = "your password is too short";
                 }
+                
             }
+
         </script>
 
 </head>
 
 <body>
-
-    <div class="w-full max-w-xs" id="container">
+<br><br><br><br>
+    <div class="w-full max-w-xs mx-auto" id="container">
         <div class=" shadow-md rounded px-8 pt-6 pb-8 mb-4" action="/action_page.php">
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
@@ -41,22 +57,22 @@
             </div>
             <div>
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="psw">Password</label>
-                <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
                         id="psw" 
                         type="psw" 
-                        placeholder="******************"
-                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
-                        required>
-            </div>
+                        placeholder="******************">
+                        </div>
             <button class="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700" 
                     onclick="vali()">Submit</button>
 
         </div>
     </div>  
-    <div id="containerlc">lc</div>
-    <div id="containeruc">UC</div>
-    <div id="containernm">Nm</div>
-    <div id="containerfc">length</div>
+    <div class="block text-gray-700 text-sm font-bold mb-2 text-center">
+        <div id="containerlc" class="">1 lowercase</div>
+        <div id="containeruc" class="">1 Capital</div>
+        <div id="containernm" class="">1 Number</div>
+        <div id="containerfc" class="">At least 8 charecters</div>
+    </div>
 </body>
 
 
